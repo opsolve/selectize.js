@@ -2577,7 +2577,7 @@
 		optgroups: [],
 	
 		plugins: [],
-		delimiter: ',',
+		delimiter: ' | ',
 		splitOn: null, // regexp or string for splitting up values from a paste command
 		persist: true,
 		diacritics: true,
