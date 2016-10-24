@@ -1305,11 +1305,6 @@
                 }
             });
 
-            $window.on(['scroll' + eventNS, 'resize' + eventNS].join(' '), function () {
-                if (self.isOpen) {
-                    self.positionDropdown.apply(self, arguments);
-                }
-            });
             $window.on('mousemove' + eventNS, function () {
                 self.ignoreHover = false;
             });
