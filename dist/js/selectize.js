@@ -695,6 +695,19 @@
             highlight(this);
         });
     };
+ 
+    /**
+    * removeHighlight fn copied from highlight v5 and
+    * edited to remove with() and pass js strict mode
+    */
+    jQuery.fn.removeHighlight = function() {
+	return this.find("span.highlight").each(function() {
+		this.parentNode.firstChild.nodeName;
+		var parent = this.parentNode;
+		parent.replaceChild(this.firstChild, this);
+		parent.normalize();
+	}).end();
+    };
 
     var MicroEvent = function () { };
     MicroEvent.prototype = {
@@ -2186,6 +2199,7 @@
 
             // highlight matching terms inline
             if (self.settings.highlight && results.query.length && results.tokens.length) {
+		$dropdown_content.removeHighlight();
                 for (i = 0, n = results.tokens.length; i < n; i++) {
                     highlight($dropdown_content, results.tokens[i].regex);
                 }
